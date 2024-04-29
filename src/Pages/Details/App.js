@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Axios from "axios";
 import { BaseURL, timestamp, hash } from "../../Config/Key";
+import "./App.css";
 
 function Details() {
 
@@ -19,27 +20,25 @@ function Details() {
             name: name,
             description: description,
             image: `${thumbnail.path}.${thumbnail.extension}`
-          };
+          }; 
           setCharacter(character);
           console.log(character);
         } else {
           console.error('Nenhum resultado encontrado ou estrutura de dados inesperada:', responseData);
-        }
+        } 
       }) //pega os dados da api e seta no estado
-  }, [])
+  }, )
 
   return (
-    <div className="hero">
-            <img src = {character.image} alt = {character.name}/> 
-            <div className="details">
+    <div className="details">
               <h1>{character.name}</h1>
-              <spam>Name: {character.name}</spam>
-              <spam>Description: {character.description}</spam>
-              <spam> {character.thumbnail}</spam>
-              <Link to={`/`}><button>Go Back</button></Link>
+              <img src = {character.image} className="imagem" alt = {character.name}/> 
+              <div className="descricao">
+              <spam className="desc">Description: {character.description}</spam>
+              </div>
+              <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
             </div>
-          </div>
-  );
+  ); //retorna os detalhes do personagem
 }
 
 export default Details;

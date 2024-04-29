@@ -2,6 +2,7 @@ import Axios from "axios";
 import { useEffect, useState } from "react";
 import { BaseURL, timestamp, publicKey, hash} from "../../Config/Key";
 import { Link } from "react-router-dom";
+import "./App.css";
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     .then(response => {
       console.log(response.data.data.results)
       setCharacter(response.data.data.results)
-    })
+    }) //pegando a resposta da API
   }, []);
 
 
@@ -31,7 +32,7 @@ function App() {
               </div>
               </div>
           </div>
-        ))}
+        ))} //mapeando os itens da API
     </div>
     </div>
 

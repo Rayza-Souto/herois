@@ -9,34 +9,32 @@ function App() {
 
   const [character, setCharacter] = useState([]);
 
+  const buscarPersonagem = () => {
+    const [handleSearch, setHandleSearch] = useState('');
+
+    const handleChange = (e) => {
+      setHandleSearch(e.target.value);
+    }
+  }
+
   useEffect(() => { 
     Axios.get(`${BaseURL}ts=${timestamp}&apikey=${publicKey}&hash=${hash}`) //requisitando a API
     .then(response => {
-      console.log(response.data.data.results)
-      setCharacter(response.data.data.results)
+      console.log(response.data.data.results) //mostrando no console a resposta da API
+      setCharacter(response.data.data.results) //setando a resposta da API no estado
     }) //pegando a resposta da API
   }, []);
 
 
   return (
-    <div className="Detalhes">
-      <p className="text-center fs-2">Personagens</p>
-      <div className="row">
-        {character.map((item) => (
-          <div className="col-md-3">
-            <div className="card">
-              <img src={item.thumbnail.path + "." + item.thumbnail.extension} className="card-img-top" alt="..."/>
-              <div className="card-body">
-                <h5 className="card-title">{item.name}</h5>
-                <Link to={`/details/name=${item.name}&apikey=${publicKey}`} className="btn btn-primary">Detalhes</Link>
-              </div>
-              </div>
-          </div>
-        ))} //mapeando os itens da API
+    <div className="Home">
+      <h1>Marvel Characteres</h1>
+      <div className="Search">
+        <input type="text" placeholder="Digite o nome do personagem" className="form-control" />
+        <Link to={`${BaseURL}name=${item.name}&apikey=${publicKey}`} className="btn btn-outline-primary">Buscar</Link>
+      </div>
     </div>
-    </div>
-
-  )
+  ) 
 }
 
 export default App;

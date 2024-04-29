@@ -15,7 +15,7 @@ function Details() {
       .then(response => {
         const responseData = response.data; // Obtém a resposta completa
         if (responseData && responseData.data && responseData.data.results) {
-          const { name, description, thumbnail } = responseData.data.results[0]; // Acessa o primeiro resultado, se existir
+          const { name, description, thumbnail } = responseData.data.results[0]; // Obtém os dados do personagem
           const character = {
             name: name,
             description: description,
@@ -27,7 +27,7 @@ function Details() {
           console.error('Nenhum resultado encontrado ou estrutura de dados inesperada:', responseData);
         } 
       }) //pega os dados da api e seta no estado
-  }, )
+  },[name] ) //name foi passado como dependencia para que toda vez que ele mudar a requisição seja feita novamente
 
   return (
     <div className="details">

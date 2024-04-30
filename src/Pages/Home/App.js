@@ -25,7 +25,7 @@ function App() {
           onChange={handleChange}
           placeholder="Digite algo..."
         />
-        <Link to ={`/details/name=${valor}&apikey=${publicKey}`} className="btn btn-danger">Buscar</Link>
+        <Link to ={`/details/?name=${valor}&apikey=${publicKey}`} className="btn btn-danger">Buscar</Link>
     </div>
 
   </div>

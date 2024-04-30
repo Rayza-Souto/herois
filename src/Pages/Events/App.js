@@ -3,12 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import Axios from "axios";
 import { BaseURL, timestamp, hash } from "../../Config/Key";
 import "./App.css";
+import {Details} from "src/Pages/Details/App.js";
 
-function Details() {
-
+function App (){
+    
   const {name} = useParams(); //realizando a captura do parametro passado na URL
-
-  const [character, setCharacter] = useState([]);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => { 
     Axios.get(`${BaseURL}?${name}&ts=${timestamp}&hash=${hash}`) //requisitando a API para pegar os detalhes do personagem
@@ -30,18 +30,12 @@ function Details() {
       }) //pega os dados da api e seta no estado
   },[name] ) //name foi passado como dependencia para que toda vez que ele mudar a requisição seja feita novamente
 
-  return (
-    <div className="details">
-              <h1>{character.name}</h1>
-              <img src = {character.image} className="imagem" alt = {character.name}/> 
-              <div className="descricao">
-              <spam className="desc">Description: {character.description}</spam>
+    return (
+      <div className="details">
+                <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
               </div>
-              <Link to={`src/Pages/Comics/App.js`}><button className="btn btn-outline-danger">Comics</button></Link>
-              <Link to={`src/Pages/Events/App.js`}><button className="btn btn-outline-danger">Events</button></Link>
-              <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
-            </div>
-  ); //retorna os detalhes do personagem
-}
+    ); //retorna os detalhes do personagem
+  }
+  
 
-export default Details;
+export default App;

@@ -1,40 +1,41 @@
-import Axios from "axios";
-import { useEffect, useState } from "react";
-import { BaseURL, timestamp, publicKey, hash} from "../../Config/Key";
 import { Link } from "react-router-dom";
 import "./App.css";
-
+import React, { useState } from 'react';
 
 function App() {
+  // Definindo um estado para armazenar o valor da caixa de texto
+  const [valor, setValor] = useState('');
 
-  const [character, setCharacter] = useState([]);
+  // Função para lidar com a mudança no valor da caixa de texto
+  const handleChange = (event) => {
+    setValor(event.target.value);
+  };
 
-  const buscarPersonagem = () => {
-    const [handleSearch, setHandleSearch] = useState('');
+  // Função para lidar com o envio do formulário
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Previne o comportamento padrão do formulário (recarregar a página)
 
-    const handleChange = (e) => {
-      setHandleSearch(e.target.value);
-    }
-  }
+    // Exibe o valor capturado
+    alert('O valor inserido é: ' + valor);
+  };
 
-  useEffect(() => { 
-    Axios.get(`${BaseURL}ts=${timestamp}&apikey=${publicKey}&hash=${hash}`) //requisitando a API
-    .then(response => {
-      console.log(response.data.data.results) //mostrando no console a resposta da API
-      setCharacter(response.data.data.results) //setando a resposta da API no estado
-    }) //pegando a resposta da API
-  }, []);
-
-
-  return (
+  return(
     <div className="Home">
+      <form onSubmit={handleSubmit}>
       <h1>Marvel Characteres</h1>
       <div className="Search">
-        <input type="text" placeholder="Digite o nome do personagem" className="form-control" />
-        <Link to={`${BaseURL}name=${item.name}&apikey=${publicKey}`} className="btn btn-outline-primary">Buscar</Link>
-      </div>
+      <input
+          type="text"
+          value={valor}
+          onChange={handleChange}
+          placeholder="Digite algo..."
+        />
+        <Link to ="src\Pages\Details\App.js" className="btn btn-primary">Buscar</Link>
     </div>
-  ) 
+    </form>
+  </div>
+
+  )
 }
 
 export default App;

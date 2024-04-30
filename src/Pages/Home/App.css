@@ -1,7 +1,19 @@
+
+
 h1 {
     text-align: center !important;
+    color: rgb(230, 42, 42);
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
 }
 
-.Home {
+.search {
     text-align: center;
+}
+
+body {
+    background-image: url('../../Images/fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

@@ -16,17 +16,16 @@ function App() {
 
 
   return(
-    <div className="Home">
-
+    <div className="home">
       <h1>Marvel Characteres</h1>
-      <div className="Search">
-      <input
+      <div className="search">
+        <input
           type="text"
           value={valor}
           onChange={handleChange}
           placeholder="Digite algo..."
         />
-        <Link to ={`/details/name=${valor}&apikey=${publicKey}`} className="btn btn-primary">Buscar</Link>
+        <Link to ={`/details/name=${valor}&apikey=${publicKey}`} className="btn btn-danger">Buscar</Link>
     </div>
 
   </div>

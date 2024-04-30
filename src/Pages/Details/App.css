@@ -3,16 +3,24 @@
     border-radius: 1rem;
 }
 
-.details{
+.details {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    margin-left: 5rem;
-    max-width: 50%; 
+    align-items: center;
+    margin-left: 30rem;
+    margin-right: 30rem;
+
 }
 
-.descricao{
-    margin-top: 1rem;
-    text-align: justify;
+.desc{
+    margin-top: 5%;
+    font-size: 1.1rem;
+    color:antiquewhite
 }
+
+.imagem{
+    width: 300px;
+    border-radius: 1rem;
+}
+

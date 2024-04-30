@@ -12,7 +12,7 @@ h1 {
 }
 
 body {
-    background-image: url('../../Images/fundo.jpg');
+    background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

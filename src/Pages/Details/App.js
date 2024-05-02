@@ -11,7 +11,7 @@ function Details() {
   const [character, setCharacter] = useState([]);
 
   useEffect(() => { 
-    Axios.get(`${BaseURL}name=${name}&ts=${timestamp}&hash=${hash}`) //requisitando a API para pegar os detalhes do personagem
+    Axios.get(`${BaseURL}${name}&ts=${timestamp}&hash=${hash}`) //requisitando a API para pegar os detalhes do personagem
       .then(response => {
         const responseData = response.data; // Obtém a resposta completa
         if (responseData && responseData.data && responseData.data.results) {

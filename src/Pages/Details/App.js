@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import Axios from "axios";
-import { BaseURL, timestamp, hash } from "../../Config/Key";
+import { BaseURL, timestamp, hash, publicKey } from "../../Config/Key";
 import "./App.css";
 
 function Details() {
@@ -37,7 +37,7 @@ function Details() {
               <div className="descricao">
               <spam className="desc">Description: {character.description}</spam>
               </div>
-              <Link to={`src/Pages/Comics/App.js`}><button className="btn btn-outline-danger">Comics</button></Link>
+              <Link to={`/${character.id}/comics?apikey=${publicKey}`}><button className="btn btn-outline-danger">Comics</button></Link>
               <Link to={`src/Pages/Events/App.js`}><button className="btn btn-outline-danger">Events</button></Link>
               <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
             </div>

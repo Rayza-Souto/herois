@@ -4,6 +4,7 @@ import './index.css';
 import App from './Pages/Home/App';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Details from './Pages/Details/App';
+import ComicsDetails from './Pages/Comics/App';
 
 
 
@@ -14,7 +15,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/details/:name" element={<Details />} />
-      <Route path="/comics/:name" element={<Details />} />
+      <Route path="/:id/comics" element={<ComicsDetails />} />
     </Routes>
   </BrowserRouter>
 );

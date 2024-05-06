@@ -13,7 +13,11 @@ function App() {
     setValor(event.target.value); // Atualiza o estado com o valor da caixa de texto
   };
 
-
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      <Link to ={`/details/name=${valor}&apikey=${publicKey}`}></Link>
+    }
+  };
 
   return(
     <div className="home">
@@ -25,7 +29,7 @@ function App() {
           onChange={handleChange}
           placeholder="Digite algo..."
         />
-        <Link to ={`/details/name=${valor}&apikey=${publicKey}`} className="btn btn-danger">Buscar</Link>
+        <Link to ={`/details/name=${valor}&apikey=${publicKey}`} className="btn btn-danger">Search</Link>
     </div>
 
   </div>

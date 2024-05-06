@@ -38,7 +38,6 @@ function Details() {
             <span className="desc">Description: {character.description}</span>
           </div>
           <Link to={`/${character.id}/comics?apikey=${publicKey}`}><button className="btn btn-outline-danger">Comics</button></Link>
-          <Link to={`src/Pages/Events/App.js`}><button className="btn btn-outline-danger">Events</button></Link>
           <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
         </div>
       ))}

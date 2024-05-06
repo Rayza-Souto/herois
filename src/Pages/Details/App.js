@@ -15,15 +15,13 @@ function Details() {
       .then(response => {
         const responseData = response.data; // Obtém a resposta completa
         if (responseData && responseData.data && responseData.data.results) {
-          const {id, name, description, thumbnail } = responseData.data.results[0]; // Obtém os dados do personagem
-          const character = {
-            id,
-            name: name,
-            description: description,
-            image: `${thumbnail.path}.${thumbnail.extension}`
-          }; 
-          setCharacter(character);
-          console.log(character);
+          const characterData = responseData.data.results.map(result =>({
+            id: result.id,
+            name: result.name,
+            description: result.description,
+            image: `${result.thumbnail.path}.${result.thumbnail.extension}`
+          })); //fazendo um map para pegar os dados do personagem, assim ele retorna mais de um personagem
+          setCharacter(characterData);
         } else {
           console.error('Nenhum resultado encontrado ou estrutura de dados inesperada:', responseData);
         } 
@@ -31,17 +29,21 @@ function Details() {
   },[name] ) //name foi passado como dependencia para que toda vez que ele mudar a requisição seja feita novamente
 
   return (
-    <div className="details">
-              <h1>{character.name}</h1>
-              <img src = {character.image} className="imagem" alt = {character.name}/> 
-              <div className="descricao">
-              <spam className="desc">Description: {character.description}</spam>
-              </div>
-              <Link to={`/${character.id}/comics?apikey=${publicKey}`}><button className="btn btn-outline-danger">Comics</button></Link>
-              <Link to={`src/Pages/Events/App.js`}><button className="btn btn-outline-danger">Events</button></Link>
-              <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
-            </div>
-  ); //retorna os detalhes do personagem
+    <div>
+      {character.map(character => (
+        <div key={character.id} className="details">
+          <h1>{character.name}</h1>
+          <img src={character.image} className="imagem" alt={character.name} />
+          <div className="descricao">
+            <span className="desc">Description: {character.description}</span>
+          </div>
+          <Link to={`/${character.id}/comics?apikey=${publicKey}`}><button className="btn btn-outline-danger">Comics</button></Link>
+          <Link to={`src/Pages/Events/App.js`}><button className="btn btn-outline-danger">Events</button></Link>
+          <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
+        </div>
+      ))}
+    </div>
+  ); // retorna os detalhes do personagem
 }
 
 export default Details;

@@ -18,7 +18,6 @@ function ComicsDetails() {
         const comicsData = responseData.data.results.map(result => ({
           id: result.id,
           title: result.title,
-          description: result.description,
           thumbnail: `${result.thumbnail.path}.${result.thumbnail.extension}`
         }));
         setComics(comicsData);
@@ -30,22 +29,19 @@ function ComicsDetails() {
   
 
   return (
-    <div>
-      <div className="details">
-        <h1>Comics</h1>
-        {comics.map(comics => (
-          <div className="card">
-            <img src={`${comics.thumbnail}`} className="imagem" alt="." />
-            <div className="card-body">
-              <h5 className="card-title">{comics.title}</h5>
-              <p className="card-text">{comics.description}</p>
-            </div>
-          </div>
-          ))}
-          </div>
-        <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
+
+  <div className="col-sm-6">
+    <h1>Comics</h1>
+    {comics.map(comics =>(
+      <div class="card-body">
+      <img src={`${comics.thumbnail}`} className="card-img-top" alt="..." />
+      <h5 class="card-title">{comics.title}</h5>
       </div>
+          ))}
+      <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
+  </div>
 );
+
 }
 
 export default ComicsDetails;

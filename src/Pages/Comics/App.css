@@ -1,3 +1,15 @@
-.comics {
-    color: antiquewhite;
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+width: 18rem;
+}
+
+.card-img-top {
+    object-fit: cover;
+    width: 50%;
+    height: 50%;
 }

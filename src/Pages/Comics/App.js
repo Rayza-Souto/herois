@@ -30,16 +30,17 @@ function ComicsDetails() {
 
   return (
 
-  <div className="col-sm-6">
+  <main>
     <h1>Comics</h1>
+    <br />
     {comics.map(comics =>(
-      <div class="card-body">
-      <img src={`${comics.thumbnail}`} className="card-img-top" alt="..." />
-      <h5 class="card-title">{comics.title}</h5>
-      </div>
+      <section className="comic-detail">
+      <img src={`${comics.thumbnail}`} className="card-img-top" alt="Comic" id="imagem"/>
+      <p>{comics.title}</p>
+      </section>
           ))}
       <Link to={`/`}><button className="btn btn-outline-danger">Go Back</button></Link>
-  </div>
+  </main>
 );
 
 }

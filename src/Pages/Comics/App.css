@@ -1,15 +1,21 @@
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.comic-detail{
+display:inline-flex;
+flex-direction:column;
+justify-content: center;
+align-items: center;
+margin-bottom: 1rem;
+margin-top: 1rem;
+max-width: 33%;
 }
 
-.card {
-width: 18rem;
+#imagem{
+  width: 20%;
+  height: 20%;
 }
 
-.card-img-top {
-    object-fit: cover;
-    width: 50%;
-    height: 50%;
+p{
+  font-size: 95%;
+  color: beige;
+  max-width: 25%;
+  text-align: center;
 }

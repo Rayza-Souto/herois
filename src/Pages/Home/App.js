@@ -21,7 +21,7 @@ function App() {
 
   return(
     <div className="home">
-      <h1>Marvel Characteres</h1>
+      <h1 className="titulo">Marvel Characteres</h1>
       <div className="search">
         <input
           type="text"

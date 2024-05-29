@@ -8,18 +8,18 @@ Olá
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-- Instale as dependencias: 
+- Instalou as dependencias: 
 Axios/MD5/react-router-dom
 
-- Leia a documentação das dependencias instaladas
+- Leu a documentação das dependencias instaladas
 
-- Realize seu cadastro no site https://developer.marvel.com/ para ter acesso as chaves da API
+- Realizou seu cadastro no site https://developer.marvel.com/ para ter acesso as chaves da API
 
 ## 🚀 Instalando a aplicação
 
 Para instalar a aplicação, siga estas etapas:
 
-git clone https://github.com/rayza-souto/herois.git
-cd herois
-npm install
-npm start
+- git clone https://github.com/rayza-souto/herois.git
+- cd herois
+- npm install
+- npm start

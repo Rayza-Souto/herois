@@ -17,7 +17,7 @@ react-router-dom
 
 ## 🚀 Instalando <herois>
 
-Para instalar o <herois>, siga estas etapas:
+Para instalar a aplicação, siga estas etapas:
 
 git clone https://github.com/rayza-souto/herois.git
 cd herois
